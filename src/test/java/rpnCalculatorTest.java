@@ -40,4 +40,17 @@ public class rpnCalculatorTest {
         int expected = firstNumber - secondNumber;
         assertEquals(result, expected);
     }
+
+    @Test
+    void test_with_plus_and_subtract(){
+        calculator = new RPNCalculator();
+        calculator.number(4);
+        calculator.number(2);
+        calculator.plus();
+        calculator.number(3);
+        calculator.subtract();
+        int result = calculator.result();
+        int expected = 4 + 2 - 3;
+        assertEquals(result, expected);
+    }
 }

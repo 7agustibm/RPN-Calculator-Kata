@@ -13,36 +13,51 @@ public class RPNCalculator {
     }
 
     public void divisor() {
-        Integer firstNumber = getFirstNumber();
-        Integer secondNumber = getSecondNumber();
-        int resultFroDivisor = secondNumber / firstNumber;
-        this.result = resultFroDivisor;
+        calculate("divisor");
     }
 
     public void plus() {
-        Integer firstNumber = getFirstNumber();
-        Integer secondNumber = getSecondNumber();
-        int resultFroDivisor = secondNumber + firstNumber;
-        this.result = resultFroDivisor;
+        calculate("plus");
+    }
+
+    public void subtract() {
+        calculate("subtract");
     }
 
     public int result() {
         return this.result;
     }
 
-    public void subtract() {
+    private void calculate(String operator) {
         Integer firstNumber = getFirstNumber();
         Integer secondNumber = getSecondNumber();
-        int resultFroDivisor = secondNumber - firstNumber;
-        this.result = resultFroDivisor;
+        switch (operator){
+            case "divisor":
+                this.result = secondNumber / firstNumber;
+                break;
+            case "plus":
+                this.result = secondNumber + firstNumber;
+                break;
+            case "subtract":
+                this.result = secondNumber - firstNumber;
+                break;
+        }
+
+        this.stack.set(getLastIndex(), this.result);
     }
 
+    private int getLastIndex() {
+        return this.stack.size()-1;
+    }
 
     private Integer getSecondNumber() {
-        return this.stack.get(this.stack.size()-2);
+        return this.stack.get(getLastIndex());
     }
 
     private Integer getFirstNumber() {
-        return this.stack.get(this.stack.size()-1);
+        int lastIndex = getLastIndex();
+        Integer firstNumber = this.stack.get(lastIndex);
+        this.stack.remove(lastIndex);
+        return firstNumber;
     }
 }
