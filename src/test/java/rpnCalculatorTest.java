@@ -1,38 +1,43 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class rpnCalculatorTest {
+    RPNCalculator calculator;
+    int firstNumber = 20;
+    int secondNumber = 5;
+
+    @BeforeEach
+    void setUp() {
+        calculator = new RPNCalculator();
+        calculator.number(firstNumber);
+        calculator.number(secondNumber);
+    }
+
     @Test
-    public void test_with_divisor(){
-        RPNCalculator calculator = new RPNCalculator();
-        calculator.number(20);
-        calculator.number(5);
+    void test_with_divisor(){
         calculator.divisor();
         int result = calculator.result();
 
-        assertEquals(result, 4);
+        int expected = firstNumber / secondNumber;
+        assertEquals(result, expected);
     }
 
     @Test
-    public void test_with_plus(){
-        RPNCalculator calculator = new RPNCalculator();
-        calculator.number(10);
-        calculator.number(5);
+    void test_with_plus(){
         calculator.plus();
         int result = calculator.result();
 
-        assertEquals(result, 15);
+        int expected = firstNumber + secondNumber;
+        assertEquals(result, expected);
     }
 
     @Test
-    public void test_with_subtract(){
-        RPNCalculator calculator = new RPNCalculator();
-        calculator.number(10);
-        calculator.number(5);
+    void test_with_subtract(){
         calculator.subtract();
         int result = calculator.result();
-
-        assertEquals(result, 5);
+        int expected = firstNumber - secondNumber;
+        assertEquals(result, expected);
     }
 }

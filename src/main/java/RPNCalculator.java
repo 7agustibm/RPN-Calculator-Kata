@@ -19,11 +19,6 @@ public class RPNCalculator {
         this.result = resultFroDivisor;
     }
 
-
-    public int result() {
-        return this.result;
-    }
-
     public void plus() {
         Integer firstNumber = getFirstNumber();
         Integer secondNumber = getSecondNumber();
@@ -31,12 +26,8 @@ public class RPNCalculator {
         this.result = resultFroDivisor;
     }
 
-    private Integer getSecondNumber() {
-        return this.stack.get(this.stack.size()-2);
-    }
-
-    private Integer getFirstNumber() {
-        return this.stack.get(this.stack.size()-1);
+    public int result() {
+        return this.result;
     }
 
     public void subtract() {
@@ -44,5 +35,14 @@ public class RPNCalculator {
         Integer secondNumber = getSecondNumber();
         int resultFroDivisor = secondNumber - firstNumber;
         this.result = resultFroDivisor;
+    }
+
+
+    private Integer getSecondNumber() {
+        return this.stack.get(this.stack.size()-2);
+    }
+
+    private Integer getFirstNumber() {
+        return this.stack.get(this.stack.size()-1);
     }
 }
