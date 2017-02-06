@@ -24,4 +24,15 @@ public class rpnCalculatorTest {
 
         assertEquals(result, 15);
     }
+
+    @Test
+    public void test_with_subtract(){
+        RPNCalculator calculator = new RPNCalculator();
+        calculator.number(10);
+        calculator.number(5);
+        calculator.subtract();
+        int result = calculator.result();
+
+        assertEquals(result, 5);
+    }
 }

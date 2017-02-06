@@ -38,4 +38,11 @@ public class RPNCalculator {
     private Integer getFirstNumber() {
         return this.stack.get(this.stack.size()-1);
     }
+
+    public void subtract() {
+        Integer firstNumber = getFirstNumber();
+        Integer secondNumber = getSecondNumber();
+        int resultFroDivisor = secondNumber - firstNumber;
+        this.result = resultFroDivisor;
+    }
 }
