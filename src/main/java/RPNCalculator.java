@@ -24,6 +24,10 @@ public class RPNCalculator {
         calculate("subtract");
     }
 
+    public void multiply() {
+        calculate("multiply");
+    }
+
     public int result() {
         return this.result;
     }
@@ -40,6 +44,9 @@ public class RPNCalculator {
                 break;
             case "subtract":
                 this.result = secondNumber - firstNumber;
+                break;
+            case "multiply":
+                this.result = secondNumber * firstNumber;
                 break;
         }
 
