@@ -4,10 +4,11 @@ public class RPNCalculator {
     private int result;
     private ArrayList<Integer> stack;
 
-    public RPNCalculator(){
+    public RPNCalculator() {
         this.result = 0;
         this.stack = new ArrayList<Integer>();
     }
+
     public void number(int newNumber) {
         stack.add(newNumber);
     }
@@ -35,7 +36,7 @@ public class RPNCalculator {
     private void calculate(String operator) {
         Integer firstNumber = getFirstNumber();
         Integer secondNumber = getSecondNumber();
-        switch (operator){
+        switch (operator) {
             case "divisor":
                 this.result = secondNumber / firstNumber;
                 break;
@@ -54,7 +55,7 @@ public class RPNCalculator {
     }
 
     private int getLastIndex() {
-        return this.stack.size()-1;
+        return this.stack.size() - 1;
     }
 
     private Integer getSecondNumber() {
