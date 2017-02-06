@@ -13,15 +13,29 @@ public class RPNCalculator {
     }
 
     public void divisor() {
-        Integer firstNumber = this.stack.get(this.stack.size()-1);
-        Integer secondNumber = this.stack.get(this.stack.size()-2);
-        this.stack.remove(this.stack.size()-1);
+        Integer firstNumber = getFirstNumber();
+        Integer secondNumber = getSecondNumber();
         int resultFroDivisor = secondNumber / firstNumber;
-        this.stack.set(this.stack.size()-1, resultFroDivisor);
         this.result = resultFroDivisor;
     }
 
+
     public int result() {
         return this.result;
+    }
+
+    public void plus() {
+        Integer firstNumber = getFirstNumber();
+        Integer secondNumber = getSecondNumber();
+        int resultFroDivisor = secondNumber + firstNumber;
+        this.result = resultFroDivisor;
+    }
+
+    private Integer getSecondNumber() {
+        return this.stack.get(this.stack.size()-2);
+    }
+
+    private Integer getFirstNumber() {
+        return this.stack.get(this.stack.size()-1);
     }
 }

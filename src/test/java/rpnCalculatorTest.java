@@ -14,4 +14,14 @@ public class rpnCalculatorTest {
         assertEquals(result, 4);
     }
 
+    @Test
+    public void test_with_plus(){
+        RPNCalculator calculator = new RPNCalculator();
+        calculator.number(10);
+        calculator.number(5);
+        calculator.plus();
+        int result = calculator.result();
+
+        assertEquals(result, 15);
+    }
 }
